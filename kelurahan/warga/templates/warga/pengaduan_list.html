@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Daftar Pengaduan Warga</title>
+</head>
+<body>
+    <h1>Daftar Pengaduan Warga</h1>
+
+    <ul>
+        {% for pengaduan in object_list %}
+            <li>
+                <h3>{{ pengaduan.judul }}</h3>
+                <p><strong>Pelapor:</strong> {{ pengaduan.pelapor.nama_lengkap }}</p>
+                <p>{{ pengaduan.deskripsi }}</p>
+                <p><strong>Status:</strong> {{ pengaduan.get_status_display }}</p>
+                <p><strong>Tanggal Lapor:</strong> {{ pengaduan.tanggal_lapor|date:"d M Y, H:i" }}</p>
+                <hr>
+            </li>
+        {% empty %}
+            <li>Tidak ada pengaduan yang tercatat.</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
