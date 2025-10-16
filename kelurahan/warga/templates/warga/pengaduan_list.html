@@ -7,6 +7,12 @@
 <body>
     <h1>Daftar Pengaduan Warga</h1>
 
+    <!-- ✅ Tambahkan link ke form tambah pengaduan -->
+    <a href="{% url 'pengaduan-tambah' %}">Tambah Pengaduan Baru</a> |
+    <a href="{% url 'warga_list' %}">Kembali ke Daftar Warga</a>
+
+    <hr>
+
     <ul>
         {% for pengaduan in object_list %}
             <li>

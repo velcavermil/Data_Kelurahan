@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -7,13 +7,21 @@
 </head>
 <body>
     <h1>Daftar Warga</h1>
+
+    <!-- ✅ Link ke form tambah warga -->
+    <a href="{% url 'warga-tambah' %}">Tambah Warga Baru</a> |
+    <!-- ✅ Link ke halaman pengaduan -->
+    <a href="{% url 'pengaduan_list' %}">Lihat Daftar Pengaduan</a>
+
+    <hr>
+
     <ul>
         {% for warga in object_list %}
             <li>
                 <a href="{% url 'warga_detail' warga.pk %}">{{ warga.nama_lengkap }}</a> - NIK: {{ warga.nik }}
             </li>
         {% empty %}
-            <li>Belum ada data warga yang terdaftar</li>
+            <li>Belum ada data warga yang terdaftar.</li>
         {% endfor %}
     </ul>
 </body>
