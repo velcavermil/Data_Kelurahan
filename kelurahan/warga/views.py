@@ -1,8 +1,14 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Warga, Pengaduan
 from django.urls import reverse_lazy
 from .forms import WargaForm, PengaduanForm
+from django.views.generic import (
+    ListView, 
+    DetailView, 
+    CreateView, 
+    UpdateView, 
+    DeleteView
+    )
 
 # Create your views here.
 class WargaListView(ListView):
