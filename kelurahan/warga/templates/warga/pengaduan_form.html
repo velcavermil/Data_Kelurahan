@@ -2,15 +2,97 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Pengaduan Baru</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #f4f9f4;
+            margin: 0;
+            padding: 30px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2e8b57;
+            margin-bottom: 25px;
+        }
+
+        form {
+            background-color: white;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 25px 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-top: 15px;
+            color: #2e8b57;
+        }
+
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-top: 5px;
+            font-size: 15px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            background-color: #2e8b57;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            padding: 10px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #256b44;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #2e8b57;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <h1>Form Tambah Pengaduan</h1>
+
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Kirim Pengaduan</button>
     </form>
-    <p><a href="{% url 'pengaduan_list' %}">← Kembali ke Daftar Pengaduan</a></p>
+
+    <a href="{% url 'pengaduan_list' %}" class="back-link">← Kembali ke Daftar Pengaduan</a>
 </body>
 </html>

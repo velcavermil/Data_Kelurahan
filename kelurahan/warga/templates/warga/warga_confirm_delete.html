@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konfirmasi Hapus Warga</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #f4f9f4;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px 40px;
+            display: inline-block;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+        }
+
+        h1 {
+            color: #2e8b57;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        button, a {
+            font-size: 15px;
+            padding: 10px 18px;
+            border-radius: 6px;
+            border: none;
+            text-decoration: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #c0392b;
+        }
+
+        a {
+            background-color: #3ca76a;
+            color: white;
+        }
+
+        a:hover {
+            background-color: #2f8a58;
+        }
+
+        strong {
+            color: #2e8b57;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Hapus Warga</h1>
+        <p>Apakah Anda yakin ingin menghapus data warga:<br>
+           <strong>{{ object.nama_lengkap }}</strong>?</p>
+
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Ya, Hapus</button>
+            <a href="{% url 'warga_detail' object.pk %}">Batal</a>
+        </form>
+    </div>
+
+</body>
+</html>

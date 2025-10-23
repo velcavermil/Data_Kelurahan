@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hapus Pengaduan</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #f4f9f4;
+            margin: 0;
+            padding: 30px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #c0392b;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            padding: 25px 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        strong {
+            color: #2e8b57;
+        }
+
+        button {
+            background-color: #c0392b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            margin-right: 10px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #a93226;
+        }
+
+        a {
+            color: #2e8b57;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Konfirmasi Hapus Pengaduan</h1>
+        <p>Apakah Anda yakin ingin menghapus pengaduan: <br>
+        <strong>{{ object.judul }}</strong>?</p>
+
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Ya, Hapus</button>
+            <a href="{% url 'pengaduan_list' %}">Batal</a>
+        </form>
+    </div>
+</body>
+</html>
