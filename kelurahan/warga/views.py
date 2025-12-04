@@ -9,6 +9,7 @@ from django.views.generic import (
     UpdateView, 
     DeleteView
     )
+from rest_framework.permissions import AllowAny, IsAuthenticatedOrReadOnly, IsAdminUser
 from rest_framework.generics import ListAPIView, RetrieveAPIView
 from .serializers import WargaSerializer, PengaduanSerializer
 from rest_framework import viewsets # Impor viewsets
@@ -78,6 +79,7 @@ class WargaViewSet(viewsets.ModelViewSet):
 
     queryset = Warga.objects.all().order_by('-tanggal_registrasi')
     serializer_class = WargaSerializer  
+    permission_classes = [IsAdminUser]
 
 class PengaduanViewSet(viewsets.ModelViewSet):
 
