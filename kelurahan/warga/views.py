@@ -11,6 +11,7 @@ from django.views.generic import (
     )
 from rest_framework.permissions import AllowAny, IsAuthenticatedOrReadOnly, IsAdminUser
 from rest_framework.generics import ListAPIView, RetrieveAPIView
+from rest_framework.filters import SearchFilter, OrderingFilter
 from .serializers import WargaSerializer, PengaduanSerializer
 from rest_framework import viewsets # Impor viewsets
 from .models import Warga, Pengaduan
@@ -80,6 +81,9 @@ class WargaViewSet(viewsets.ModelViewSet):
     queryset = Warga.objects.all().order_by('-tanggal_registrasi')
     serializer_class = WargaSerializer  
     permission_classes = [IsAdminUser]
+    filter_backends = [SearchFilter, OrderingFilter]
+    search_fields = ['nama_lengkap', 'nik', 'alamat']
+    ordering_fields = ['nama_lengkap', 'tanggal_registrasi']
 
 class PengaduanViewSet(viewsets.ModelViewSet):
 
