@@ -89,3 +89,6 @@ class PengaduanViewSet(viewsets.ModelViewSet):
 
     queryset = Pengaduan.objects.all()
     serializer_class = PengaduanSerializer
+    filter_backends = [SearchFilter, OrderingFilter]
+    search_fields = ['juudl', 'deskripsi']
+    ordering_fields = ['judul', 'tanggal_lapor']
