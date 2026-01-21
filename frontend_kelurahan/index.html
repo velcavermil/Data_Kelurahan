@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Daftar Warga</title>
+
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #f3f6f4;
+            margin: 40px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2e8b57;
+        }
+
+        /* ===== FORM ===== */
+        form {
+            max-width: 650px;
+            margin: 0 auto 30px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #dcdcdc;
+        }
+
+        form h3 {
+            margin-top: 0;
+            color: #2e8b57;
+            text-align: center;
+        }
+
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 14px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            background-color: #3ca76a;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #2f8a58;
+        }
+
+        /* ===== LIST ===== */
+        ul {
+            list-style: none;
+            padding: 0;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        li {
+            background-color: white;
+            border: 1px solid #dcdcdc;
+            border-radius: 14px;
+            padding: 18px;
+            margin-bottom: 14px;
+            transition: 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+
+        li:hover {
+            background-color: #eaf4ed;
+            transform: translateY(-2px);
+        }
+
+        .bubble-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nama {
+            font-size: 17px;
+            font-weight: bold;
+            color: #2e8b57;
+        }
+
+        .nik {
+            background-color: #e0f2e9;
+            color: #2e8b57;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .alamat {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #444;
+        }
+
+        .telepon {
+            margin-top: 6px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .empty {
+            text-align: center;
+            color: #999;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Daftar Warga</h1>
+
+    <!-- FORM TAMBAH WARGA -->
+    <form id="warga-form">
+        <h3>➕ Tambah Warga Baru</h3>
+        <input type="text" id="nik" placeholder="NIK" required>
+        <input type="text" id="nama" placeholder="Nama Lengkap" required>
+        <textarea id="alamat" placeholder="Alamat" required></textarea>
+        <input type="text" id="telepon" placeholder="No Telepon">
+        <button type="submit">Simpan</button>
+    </form>
+
+    <!-- LIST WARGA -->
+    <ul id="warga-list">
+        <li class="empty">Memuat data...</li>
+    </ul>
+
+    <script src="app.js"></script>
+</body>
+</html>
